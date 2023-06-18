@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz Game | Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body class="quiz-result">
+    <h1>Quiz Result!</h1>
+    <main>
+      <div class="quiz-score">
+        <div>
+          You answered <span>{{ correct_answers }}</span> questions correctly!
+        </div>
+        <a href="/">Play again!</a>
+      </div>
+    </main>
+  </body>
+</html>

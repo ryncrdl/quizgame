@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Question list</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body class="container bg">
+    <div class="header">Questions</div>
+    <div class="row">
+      <div class="col col-xs-10 col-md-5 col-lg-4">
+        <div class="admin-lg">Edit quiz</div>
+        <form method="POST" action="/admin/quiz">
+          <input type="hidden" name="id" value="{{quiz.id}}" />
+          <div class="row">
+            <div class="admin-text col-xs-3 col-md-3 col-lg-3">Name:</div>
+            <div class="col-xs-4 col-md-4 col-lg-4">
+              <input
+                class="admin-input"
+                type="text"
+                name="quiz_name"
+                value="{{quiz.name}}"
+              />
+            </div>
+            <div class="col-xs-10 col-md-1">
+              <input class="add-button" type="submit" value="Save" />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="table col-xs-10 col-md-5 col-lg-2">
+        <table border="1">
+          <tr>
+            <td class="admin-lg">ID</td>
+            <td class="admin-lg">TEXT</td>
+            <td></td>
+          </tr>
+          {% for question in quiz.questions %}
+          <tr>
+            <td class="admin-text">{{question.id}}</td>
+            <td>
+              <a
+                class="admin-text"
+                href="/admin/question?question_id={{question.id}}"
+                >{{question.text}}</a
+              >
+            </td>
+            <td>
+              <form method="POST" action="/admin/question/delete">
+                <input type="hidden" name="id" value="{{question.id}}" />
+                <input type="submit" value="delete" />
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="col col-xs-10 col-md-10 col-lg-4">
+        <div class="admin-lg">Add question</div>
+        <form method="POST" action="/admin/question/add">
+          <div class="row">
+            <div class="admin-text col-xs-4 col-md-2 col-lg-4">
+              Question text:
+            </div>
+            <div class="col-xs-4 col-md-2 col-lg-4">
+              <input class="admin-input" type="text" name="question_text" />
+            </div>
+            <div class="col-xs-10 col-md-1">
+              <input class="add-button" type="submit" value="Add" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

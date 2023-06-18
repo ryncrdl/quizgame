@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Answer list</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body class="container bg">
+  <div class="header">Answers</div>
+  <div class="row">
+    <div class="col col-xs-10 col-md-6">
+      <div class="admin-lg">
+        Edit question
+      </div>
+      <form method="POST" action="/admin/question">
+        <input type="hidden" name="id" value="{{question.id}}" />
+        <div class="row">
+          <div class="admin-text col-xs-4 col-md-3 col-lg-3">
+            Question text:
+          </div>
+          <div class="col-xs-4 col-md-3 col-lg-3">
+            <input class="admin-input" type="text" name="question_text" value="{{question.text}}" />
+          </div>
+          <div class="col-xs-10 col-md-1">
+            <input class="add-button" type="submit" value="Save" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="table col-xs-10 col-md-4">
+      <table border="1">
+        <tr>
+          <td class="admin-lg">ID</td>
+          <td class="admin-lg">TEXT</td>
+          <td>
+          </td>
+        </tr>
+        {% for answer in question.answers %}
+        <tr>
+          <td class="admin-text">{{answer.id}}</td>
+          <td class="admin-text">{{answer.text}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

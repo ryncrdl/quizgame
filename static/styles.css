@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fugaz One", cursive;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Login */
+header {
+  background: #eee;
+  padding: 1rem 2rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+header ul a {
+  color: #fff;
+}
+
+header ul li {
+  padding: 0.5rem 1rem;
+}
+
+header ul li:nth-child(1) {
+  background: rgb(118, 199, 226);
+}
+
+header ul li:nth-child(2) {
+  background: red;
+}
+
+header h1 {
+  color: #707070;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+main form {
+  background: #eee;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+  padding: 2em 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+main form label {
+  font-size: 2rem;
+  color: #707070;
+  text-transform: capitalize;
+}
+
+main form #username {
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+
+main form input[type="submit"] {
+  font-size: 1.2rem;
+  background: lightblue;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #707070;
+}
+
+main form input[type="submit"]:hover {
+  background: rgb(158, 186, 196);
+  color: #fff;
+}
+
+main section {
+  width: 90%;
+  height: 90%;
+}
+
+main section h2 {
+  padding: 1rem 2rem;
+  background: #eee;
+  text-align: center;
+  color: #707070;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+  margin: 1rem 0rem;
+}
+
+.correct-answers-container {
+  background: #eee;
+  width: min-content;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.correct-answers-container .score {
+  font-size: 1.2rem;
+  color: #707070;
+}
+
+.correct-answers-container .score span {
+  color: blue;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.check {
+  background: #eee;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  width: min-content;
+  margin: auto;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.check .correct {
+  color: green;
+}
+
+.check .incorrect {
+  color: red;
+}
+
+.question-container {
+  background: rgb(14, 132, 179);
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+  width: 35rem;
+  height: 20rem;
+  display: grid;
+  place-items: center;
+
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.answers-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0rem;
+}
+
+.answers-container a {
+  color: #707070;
+  padding: 0.5rem 1rem;
+  background: #eee;
+  width: 15rem;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+h3 {
+  background: #eee;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  color: #707070;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.answers-container a:hover {
+  background: #d8d8d8;
+}
+
+.answers-container a:nth-child(1)::before {
+  content: "A.) ";
+}
+.answers-container a:nth-child(2)::before {
+  content: "B.) ";
+}
+.answers-container a:nth-child(3)::before {
+  content: "C.) ";
+}
+.answers-container a:nth-child(4)::before {
+  content: "D.) ";
+}
+
+.answers-container h3 {
+  color: #707070;
+  white-space: nowrap;
+}
+
+.quiz-result {
+  text-align: center;
+  color: #707070;
+  background: #eee;
+
+  margin: 2rem;
+}
+
+.quiz-result .quiz-score {
+  padding: 2rem;
+  text-align: center;
+  line-height: 3rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.quiz-result .quiz-score span {
+  color: blue;
+}
+
+.quiz-result div a {
+  color: #707070;
+  padding: 0.5rem 1rem;
+  background: lightblue;
+  font-size: 1.2rem;
+}

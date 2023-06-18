@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Quiz</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>{{quiz_name}}</h1>
+      <nav>
+        <ul>
+          <li><a class="link" href="/restart">Restart</a></li>
+          <li><a class="link" href="/logout">Log out</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Quiz for {{session['username']}}!</h2>
+
+        {% if session['ca'] != None and session['ca'] != Null %}
+        <div class="correct-answers-container">
+          <div class="score">
+            Correct answers: <span>{{session['ca']}}</span>
+          </div>
+        </div>
+        {% endif %} {% if session['ca'] != None and session['ca'] != Null %}
+        <div class="check">
+          {% if correct %}
+          <div class="correct">Correct!</div>
+          {% endif %} {% if not correct %}
+          <div class="incorrect">Incorrect!</div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="question-container">
+          <p>{{ question.text }}</p>
+        </div>
+        <h3>Choose the correct answer</h3>
+        <div class="answers-container">
+          {% for answer in question.answers %}
+          <a href="/?answer_id={{answer.id}}">{{answer.text}}</a>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
